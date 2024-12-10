@@ -1,0 +1,110 @@
+:root {
+    --pen-colour: #ADA387;
+    --grid-lighter-colour: #EEE1C4;
+    --grid-darker-colour: #E6D9BD;
+    --text-colour: #716441;
+}
+
+body {
+    background-color: #D6C7A3;
+    text-align: center;
+    font-family: 'Joystix', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-colour);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 16px;
+}
+
+#editor {
+    display:flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+#palette {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: start;
+    gap: 4px;
+    max-width: 84px;
+}
+
+#palette .swatch {
+    cursor: pointer;
+    box-sizing: border-box;
+    height: 40px;
+    width: 40px;
+}
+
+#palette .swatch:hover {
+    border: 2px solid #716441;
+}
+
+#palette .selected {
+    border: 2px solid var(--text-colour);
+    height: 40px;
+    width: 40px;
+}
+
+#canvas {
+    width: 540px;
+    height: 540px;
+    display: flex;
+    flex-flow: column;
+
+    box-shadow: 10px 10px #ADA387;
+}
+
+#canvas .row {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: row;
+}
+
+#canvas .row .pixel {  
+    transition: background-color 0.1s;
+    transition-timing-function: ease-out;
+    background-color: var(--grid-lighter-colour);
+    flex-grow: 1;
+}
+
+#canvas .row .pixel:nth-child(odd) {
+    background-color: var(--grid-darker-colour);
+}
+
+/* Default background of pixel on even rows */
+#canvas .row:nth-child(even) .pixel {
+    background-color: var(--grid-darker-colour);
+}
+
+/* Alt background of even pixels on even rows */
+#canvas .row:nth-child(even) .pixel:nth-child(odd) {
+    background-color: var(--grid-lighter-colour);
+}
+
+#canvas .row:nth-child(even) .pixel:hover, #canvas .row .pixel:hover {  
+    background-color:var(--pen-colour);
+}
+
+#palette button {
+    background-color: #C3B797;
+    display: block;
+    padding: 8px 16px;
+    width: 100%;
+    border: 0;
+    color: var(--text-colour);
+    text-transform: uppercase;
+    font-family: 'Joystix', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+}
+
+#palette button:hover {
+    color: #C3B797;
+    background-color: var(--text-colour);
+    cursor: pointer;
+}
