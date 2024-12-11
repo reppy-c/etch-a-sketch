@@ -5,6 +5,11 @@
     --text-colour: #716441;
 }
 
+@font-face {
+    font-family: 'Joystix';
+    src: url('joystix.otf') format('opentype');
+}
+
 body {
     background-color: #D6C7A3;
     text-align: center;
